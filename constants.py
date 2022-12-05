@@ -18,7 +18,7 @@ tbond = 20
 labor_cost = 200000
 # Upfront Machine Cost (USD)
 #machine_cost = 1000000
-machine_cost = 200000
+machine_cost = 1000000
 # Useful Time of Machine (years)
 machine_depreciation_time = 5
 # This is the assembly cost per second.
@@ -34,14 +34,18 @@ wafer_diameter = 300
 edge_exclusion = 3
 wafer_area = math.pi*((wafer_diameter/2)-edge_exclusion)**2
 
+# Chiplet Parameters
+chip_separation = 300 #um
+
 # Estimated Full Wafer Costs for a 300mm wafer (USD)
 # TODO: Add switch for wafer size and technology node.
 interposer_wafer_cost = 1487.08
-wafer_40nm_cost = 3200.00
+wafer_40nm_cost = 2274.00
 blank_wafer_cost = 500.00
 interposer_wafer_cost_per_mm2 = interposer_wafer_cost/wafer_area
 wafer_cost_per_mm2 = wafer_40nm_cost/wafer_area
 blank_wafer_cost_per_mm2 = blank_wafer_cost/wafer_area
+fraction_wafer_cost_litho = 0.34235 #This number was reported for 5nm
 
 # Yield Parameters
 # Defect Density (/mm^2)
@@ -50,6 +54,9 @@ defect_density = 0.004
 clustering_factor = 2
 # Alignment Yield
 yield_alignment = 0.999
+# Wafer Process Yield
+wafer_process_yield = 1
+#wafer_process_yield = 0.94
 
 # Delay and Power Parameters
 # Capacitance per um^2 (pF)
