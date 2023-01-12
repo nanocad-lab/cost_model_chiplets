@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!-- This file should contain all technology definitions we are likely to use.-->
+<!-- Areas are in mm^2 and distances are in mm unless otherwise specified. -->
+<!-- Times are in seconds unless otherwise stated. -->
+<!-- Areas for IO cells are in um^2. -->
+<!-- ESD protection level in assembly process is for internal IO cells, external is defined in system definition. -->
+<!-- Transistor density is in million transistors per mm^2. -->
+<!-- Design costs listed here are NRE design costs per mm^2 design area. -->
+<!-- Mask costs listed are incurred once for each different different chiplet. -->
+
+<technologyList>
+    <assembly_process name="process1"
+        picknplace_group="1"
+        bonding_group="1"
+        tplace="10"
+        tbond="20"
+        machine_cost="1000000"
+        machine_lifetime_years="5"
+        machine_labor_cost="200000"
+        chip_separation="0.300"
+        alignment_yield="0.999"
+        bonding_yield="0.99999"
+        interposer="interposer1"
+        esd_protection_req="CDM"
+        esd_protection_level="150">
+    </assembly_process>
+    <interposer name="interposer1"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="1487.08"
+        edge_exclusion="3"
+        design_cost="50"
+        nre_mask_cost="300">
+    </interposer>
+    <technology name="40nm"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="2274.00"
+        wafer_process_yield="0.94"
+        edge_exclusion="300"
+        fraction_wafer_cost_litho="0.25"
+        defect_density="0.0005"
+        clustering_factor="2"
+        wire_cap=""
+        wire_width=""
+        nominal_vdd="1.1"
+        transistor_density="4.6"
+        min_wire_pitch="0.118"
+        c_per_um_sq="0.000061389"
+        inv_delay="10.9"
+        logic_design_cost="332"
+        nre_mask_cost="309">
+        <io_cell name="CDM"
+            buffer_size="47.63"
+            esd_area_per_v_protection="0.3"
+            esd_cap_per_v_protection="0.15">
+        </io_cell>
+    </technology>
+    <technology name="40nm_sram"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="2274.00"
+        wafer_process_yield="0.94"
+        edge_exclusion="300"
+        fraction_wafer_cost_litho="0.25"
+        defect_density="0.0005"
+        clustering_factor="2"
+        wire_cap=""
+        wire_width=""
+        nominal_vdd="1.1"
+        transistor_density="4.6"
+        min_wire_pitch="0.118"
+        c_per_um_sq="0.000061389"
+        inv_delay="10.9"
+        design_cost="483"
+        nre_mask_cost="216">
+        <io_cell name="CDM"
+            buffer_size="47.63"
+            esd_area_per_v_protection="0.3"
+            esd_cap_per_v_protection="0.15">
+        </io_cell>
+    </technology>
+    <technology name="10nm"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="5992.00"
+        wafer_process_yield="0.94"
+        edge_exclusion="300"
+        fraction_wafer_cost_litho="0.25"
+        defect_density="0.0007"
+        clustering_factor="2"
+        wire_cap=""
+        wire_width=""
+        nominal_vdd="0.83"
+        transistor_density="60.3"
+        min_wire_pitch="0.0636"
+        c_per_um_sq=""
+        inv_delay="3.24"
+        design_cost=""
+        nre_mask_cost="">
+        <io_cell name="CDM"
+            buffer_size="11.91"
+            esd_area_per_v_protection="0.3"
+            esd_cap_per_v_protection="0.15">
+        </io_cell>
+    </technology>
+    <technology name="7nm"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="9346.00"
+        wafer_process_yield="0.94"
+        edge_exclusion="300"
+        fraction_wafer_cost_litho="0.29"
+        defect_density="0.0007"
+        clustering_factor="2"
+        wire_cap=""
+        wire_width=""
+        nominal_vdd="0.8"
+        transistor_density="96.5"
+        min_wire_pitch="0.0506"
+        c_per_um_sq=""
+        inv_delay="2.47"
+        logic_design_cost=""
+        sram_design_cost=""
+        nre_logic_mask_cost=""
+        nre_sram_mask_cost="">
+        <io_cell name="CDM"
+            buffer_size="8.33"
+            esd_area_per_v_protection="0.3"
+            esd_cap_per_v_protection="0.15">
+        </io_cell>
+    </technology>
+    <technology name="5nm"
+        wafer_diameter="300"
+        reticle_x="26"
+        reticle_y="33"
+        wafer_cost="16988.00"
+        wafer_process_yield="0.94"
+        edge_exclusion="300"
+        fraction_wafer_cost_litho="0.35"
+        defect_density="0.0007"
+        clustering_factor="2"
+        wire_cap=""
+        wire_width=""
+        nominal_vdd="0.8"
+        transistor_density="171.3"
+        min_wire_pitch=""
+        c_per_um_sq=""
+        inv_delay=""
+        logic_design_cost=""
+        sram_design_cost=""
+        nre_logic_mask_cost=""
+        nre_sram_mask_cost="">
+        <io_cell name="CDM"
+            buffer_size="5.95"
+            esd_area_per_v_protection="0.3"
+            esd_cap_per_v_protection="0.15">
+        </io_cell>
+    </technology>
+</technologyList>
+

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<!-- This file contains the system definition.
+     This will include a list of chiplet objects
+     and an interposer object as well as the correct 
+     technology from the tech.xml file.
+     The general format should include an interposer
+     specification, a number of chiplets, and chiplet specifications.
+     Areas are in mm^2 and distances are in mm unless otherwise specified.-->
+
+<system_definition n_chiplets="10" assembly_process="process1" multi_chip_reticle="False" quantity="1000">
+    <esd type="CDM"
+        level="500">
+    </esd>
+    <interposer
+        area="858"
+        n_layers="1">
+    </interposer>
+    <chiplet name="0"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="1"
+        tech="10nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="2"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="3"
+        tech="40nm"
+        area="60"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="4"
+        tech="40nm"
+        area="100"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="5"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="6"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="7"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="8"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+    <chiplet name="9"
+        tech="40nm"
+        area="80"
+        inpins="100"
+        outputpins="100"
+        extinpins="10"
+        extoutputpins="10"
+        pwrpins="100">
+    </chiplet>
+</system_definition>
