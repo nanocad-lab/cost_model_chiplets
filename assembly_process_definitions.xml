@@ -1,0 +1,85 @@
+<!--
+    Filename: assembly_process_definitions.xml
+    Author: Alexander Graening
+    Affiliation: University of California, Los Angeles
+    Email: agraening@ucla.edu
+
+    Assembly Process Definition Format:
+        - Name: The name listed here is the name that should be referenced in the system definition.
+        - Materials Cost per mm2: This is given in units of $/mm^2. This is the
+            cost of the materials used in the assembly process.
+        - Assembly Type: This is the type of assembly process. This is currently
+            a placeholder that does not impact the result.
+        - Pick and place machine cost in USD.
+        - Pick and place machine lifetime in years over which the initial costs are ammortized.
+        - Pick and place machine uptime as a fraction of ownership time. The value should be between 0 and 1.
+        - Pick and place technician yearly cost in USD.
+        - Pick and place time in seconds.
+        - Pick and place group size. This is the number of chips that can be picked and placed at once.
+        - Bonding machine cost in USD.
+        - Bonding machine lifetime in years over which the initial costs are ammortized.
+        - Bonding machine uptime as a fraction of ownership time. The value should be between 0 and 1.
+        - Bonding technician yearly cost in USD.
+        - Bonding time in seconds.
+        - Bonding group size. This is the number of chips that can be bonded at once.
+        - Die separation distance in mm.
+        - Edge exclusion distance in mm.
+        - Maximum pad current density in A/mm^2.
+        - Bonding pitch in mm.
+        - Alignment yield as a fraction between 0 and 1.
+        - Bonding yield as a fraction between 0 and 1.
+        - Dielectric bond defect density in units of defects/mm^2.  
+
+    Description: Define a starter assembly process definition library for the example design.
+            The actual parameters are intended to come relatively close to reasonable parameters,
+            but users should replace these numbers with real numbers if they have them.
+-->
+
+<assembly_processes>
+    <assembly name="organic_simultaneous_bonding" 
+        materials_cost_per_mm2="0.1"
+        assembly_type="D2D"
+        picknplace_machine_cost="200000"
+        picknplace_machine_lifetime="5"
+        picknplace_machine_uptime="0.9"
+        picknplace_technician_yearly_cost="100000"
+        picknplace_time="10"
+        picknplace_group="1"
+        bonding_machine_cost="200000"
+        bonding_machine_lifetime="5"
+        bonding_machine_uptime="0.9"
+        bonding_technician_yearly_cost="100000"
+        bonding_time="20"
+        bonding_group="10"
+        die_separation="1.000"
+        edge_exclusion="2.000"
+        max_pad_current_density="100.0"
+        bonding_pitch="0.110"
+        alignment_yield="0.999"
+        bonding_yield="0.999999"
+        dielectric_bond_defect_density="0.0">
+    </assembly>
+    <assembly name="silicon_individual_bonding" 
+        materials_cost_per_mm2="0.1"
+        assembly_type="D2D"
+        picknplace_machine_cost="1000000"
+        picknplace_machine_lifetime="5"
+        picknplace_machine_uptime="0.9"
+        picknplace_technician_yearly_cost="100000"
+        picknplace_time="10"
+        picknplace_group="1"
+        bonding_machine_cost="1000000"
+        bonding_machine_lifetime="5"
+        bonding_machine_uptime="0.9"
+        bonding_technician_yearly_cost="100000"
+        bonding_time="20"
+        bonding_group="1"
+        die_separation="0.100"
+        edge_exclusion="0.100"
+        max_pad_current_density="10000.0"
+        bonding_pitch="0.010"
+        alignment_yield="0.999"
+        bonding_yield="0.999999"
+        dielectric_bond_defect_density="0.0">
+    </assembly>
+</assembly_processes>

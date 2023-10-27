@@ -1,0 +1,11 @@
+<test_processes>
+    <test_process name="test_process_0"
+        test_self="True"
+        test_assembly="True"
+        test_quality_param="0.9"
+        defect_coverage = "0.9" 
+        die_numbers = "1"
+        test_cost_per_mm2="1.0"
+        pattern_count = "100">
+    </test_process>
+</test_processes>

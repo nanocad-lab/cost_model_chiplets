@@ -1,0 +1,76 @@
+<!--
+    Filename: netlist.xml
+    Author: Alexander Graening
+    Affiliation: University of California, Los Angeles
+    Email: agraening@ucla.edu
+
+    Netlist Format:
+        - IO Definition Reference: IO type is defined with the type parameter.
+            This name must reference an IO type in the io definition file.
+        - Directionality: If the IO type referenced from the io definition
+            file is defined as a bidirectional IO, there is no sense of direction.
+            Alternatively, if the IO is not defined as bidirectional, the
+            connections are directional with block0 as the TX block and block1
+            as the RX block.
+        - Area for Bidirectional Cells: If there is a bidirectional IO type
+            between blocks in different technology nodes it is possible the
+            TX and RX sides will have different areas despite being functionally
+            equivalent. In this case, the area of the bidirectional IO follows
+            the same format as above, block0 will have the area defined as TX
+            area in the IO definition.
+        - Bandwidth: The bandwidth is defined in G-bit/s. This is the bandwidth
+            of the connection in one direction for a directional connection. If
+            the IO is bidirectional, this is the combined bandwidth in both
+            directions. This is assumed to be symmetric so 10G-bit/s would mean
+            5G-bit/s in each direction.
+
+    Description: Define connectivity between blocks for an example design. This
+            has some extra explanation below and can be used as a template for 
+            defining your own designs.
+-->
+
+<netlist>
+    <!-- UCIe_standard is bidirectional.  -->
+    <net type="UCIe_standard"
+        block0="CPU"
+        block1="MEM"
+        bandwidth="64">
+    </net>
+    <!-- GPIO is not bidirectional. Defining connections from CPU to MEM. -->
+    <net type="GPIO"
+        block0="CPU"
+        block1="MEM"
+        bandwidth="100">
+    </net>
+    <!-- GPIO is not bidirectional. Now defining connections the opposite direction from MEM to CPU. -->
+    <net type="GPIO"
+        block0="MEM"
+        block1="CPU"
+        bandwidth="100">
+    </net>
+    <!-- PCIe_standard is bidirectional. -->
+    <net type="PCIe"
+        block0="CPU"
+        block1="GPU"
+        bandwidth="128">
+    </net>
+    <!-- GPIO is not bidirectional. Defining connections from CPU to GPU. -->
+    <net type="GPIO"
+        block0="CPU"
+        block1="GPU"
+        bandwidth="10">
+    </net>
+    <!-- GPIO is not bidirectional. Now defining connections the opposite direction from GPU to CPU. -->
+    <net type="GPIO"
+        block0="GPU"
+        block1="CPU"
+        bandwidth="10">
+    </net>
+    <!-- UCIe_standard is bidirectional. -->
+    <net type="UCIe_standard"
+        block0="GPU"
+        block1="MEM"
+        bandwidth="64">
+    </net>
+</netlist>
+

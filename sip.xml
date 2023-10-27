@@ -1,0 +1,114 @@
+<!--
+    Filename: sip.xml
+    Author: Alexander Graening
+    Affiliation: University of California, Los Angeles
+    Email: agraening@ucla.edu
+
+    System Definition Format:
+        - Core Area: This is the area required for logic and memory. A passive
+            integration substrate would have a core area of 0 since the real
+            area is determined by the logic area of the dies stacked on it.
+        - Buried: If this flag is true, a die does not affect the area of
+            the integration substrate it is stacked on. This is useful for
+            modelling EMIB.
+        - Assembly Process: An assembly process should be selected from the
+            assembly process file here.
+        - Test Process: Select a test process from the test process file here.
+            Note that this is still under development, but an update will come
+            soon giving example test processes and providing support.
+        - Stackup: The stackup is defined as a comma separated list of layers
+            where each later starts with a number indicating how many times the
+            layer is repeated. The layer name is then given after the colon.
+            For example: "1:active_layer,2:advanced_metal_layer,2:intermediate_metal_layer,
+            2:global_metal_layer" It is also valid to simply define a single layer.
+        - Wafer Process: Select a wafer process from the wafer process file here.
+        - NRE Design Cost: This is the non-recurring engineering cost for the chip.
+            We plan to add more details to the NRE cost modelling support.
+        - Core Voltage: This is the core voltage for the chip used to determine
+            current density based on power number.
+        - Power: This is the power of the chip used to determine the number of VDD/GND bumps
+            along with the core voltage.
+        - Quantity: This determines the ammortization of the NRE costs.
+    === The next few parameters will be used in the PDN definition but are not currently supported. ===
+        - V Rail: This is the voltage rail for the chip. If there are multiple
+            voltage rails, they should be comma separated.
+        - Regulator Efficiency: This is the efficiency of the voltage regulator
+            for the chip. If there are multiple regulators, they should be comma
+            separated.
+        - Regulator Type: This is the type of voltage regulator for the chip.
+            If there are multiple regulators, they should be comma separated. This is mean to 
+
+        - Defining 2.5D and 3D stacks:
+            - As can be seen in the design below, each chip has may contain a list of nested
+                chip objects.
+            - The root chip is considered to be on the bottom and each chip in its list is
+                stacked directly on top of it.
+            - Each of those stacked chips may also contain a list of nested chip objects
+                which are stacked directly on it.
+
+    Description: Example design definition. This can be used as a template for your designs.
+            In the design below, there is a MEM chiplet 3D bonded on a CPU chiplet. That stack
+            and a GPU chiplet are bonded on an interposer which is the root "chip" object in
+            this system definition.
+-->
+
+<chip name="interposer"
+    coreArea="0.0"
+    buried="False"
+    assembly_process="silicon_individual_bonding"
+    test_process="test_process_0"
+    stackup="1:organic_substrate,6:5nm_global_metal"
+    wafer_process="process_1"
+    nre_design_cost="0.0"
+    v_rail="5"
+    reg_eff="1.0"
+    reg_type="none"
+    core_voltage="1.0"
+    power="0.0"
+    quantity="1000000">
+    <chip name="CPU"
+        coreArea="10.0"
+        buried="False"
+        assembly_process="silicon_individual_bonding"
+        test_process="test_process_0"
+        stackup="1:5nm_active,2:5nm_advanced_metal,2:5nm_intermediate_metal,2:5nm_global_metal"
+        wafer_process="process_1"
+        nre_design_cost="0.0"
+        v_rail="5,1.8"
+        reg_eff="1.0,0.9"
+        reg_type="none,side"
+        core_voltage="1.0"
+        power="100.0"
+        quantity="1000000">
+        <chip name="MEM"
+            coreArea="10.0"
+            buried="False"
+            assembly_process="organic_simultaneous_bonding"
+            test_process="test_process_0"
+            stackup="1:5nm_active,2:5nm_advanced_metal,2:5nm_intermediate_metal,2:5nm_global_metal"
+            wafer_process="process_1"
+            nre_design_cost="0.0"
+            v_rail="5,1.8"
+            reg_eff="1.0,0.9"
+            reg_type="none,side"
+            core_voltage="1.0"
+            power="10.0"
+            quantity="1000000">
+        </chip>
+    </chip>
+    <chip name="GPU"
+        coreArea="10.0"
+        buried="False"
+        assembly_process="organic_simultaneous_bonding"
+        test_process="test_process_0"
+        stackup="1:5nm_active,2:5nm_advanced_metal,2:5nm_intermediate_metal,2:5nm_global_metal"
+        wafer_process="process_1"
+        nre_design_cost="0.0"
+        v_rail="5,1.8"
+        reg_eff="1.0,0.9"
+        reg_type="none,side"
+        core_voltage="1.0"
+        power="100.0"
+        quantity="1000000">
+    </chip>
+</chip>
